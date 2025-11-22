@@ -59,7 +59,6 @@ RECORDS2DISCOGS/
 2. **Install dependencies:**
     ```bash
     pip install -r ml-mobileclip/requirements.txt
-    pip install -r vinyl-record-indexing/requirements.txt
     ```
 
 3. **Download model weights:**
@@ -67,7 +66,7 @@ RECORDS2DISCOGS/
       Place checkpoints in `ml-mobileclip/models/`
       - Example: `mobileclip_s0.pt`, `MobileCLIP2-L-14.pt`, etc.
     - **LLaVA (Vision Language Models):**  
-      Use LM Studio to download and load LLaVA-7B / 13B models.
+      Use LM Studio to download and load models.
 
 4. **Verify Python path/module install:**
     ```bash
@@ -80,7 +79,7 @@ RECORDS2DISCOGS/
 ## Usage
 
 1. **Start LM Studio**
-    - Load LLaVA-7B, 13B, or compatible multimodal vision model.
+    - Load compatible multimodal vision model.
     - Confirm server available at `http://localhost:1234/v1/chat/completions`.
 
 2. **Run the main pipeline:**
