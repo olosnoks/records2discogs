@@ -10,13 +10,14 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-# Paths
-ROOT_DIR = Path(__file__).parent
+# Paths - cleanup.py is inside indexing-output/
+ROOT_DIR = Path(__file__).parent.parent  # Go up to records2discogs/
+INDEXING_OUTPUT_DIR = Path(__file__).parent  # Current dir (indexing-output/)
 VINYL_INDEXING_DIR = ROOT_DIR / "vinyl-record-indexing"
 OUTPUT_CSV = VINYL_INDEXING_DIR / "output.csv"
 VINYLS_DIR = VINYL_INDEXING_DIR / "vinyls"
-BACKUP_DIR = ROOT_DIR / "csv-backups"
-MASTER_CSV = ROOT_DIR / "master.csv"
+BACKUP_DIR = INDEXING_OUTPUT_DIR / "csv-backups"  # Inside indexing-output/
+MASTER_CSV = INDEXING_OUTPUT_DIR / "master.csv"  # Inside indexing-output/
 
 def ensure_directories():
     """Create necessary directories if they don't exist"""
@@ -38,7 +39,7 @@ def backup_batch_csv():
     return backup_path
 
 def append_to_master(source_csv):
-    """Append batch CSV to master.csv in root"""
+    """Append batch CSV to master.csv in indexing-output/"""
     if not source_csv or not source_csv.exists():
         print("⚠ No source CSV to append")
         return
@@ -103,11 +104,11 @@ def main():
     # Step 1: Create directories
     ensure_directories()
     
-    # Step 2: Backup the output CSV to csv-backups/
+    # Step 2: Backup the output CSV to indexing-output/csv-backups/
     print("\n[1/4] Backing up batch CSV...")
     backup_path = backup_batch_csv()
     
-    # Step 3: Append to master.csv in root
+    # Step 3: Append to indexing-output/master.csv
     print("\n[2/4] Appending to master.csv...")
     append_to_master(backup_path)
     
