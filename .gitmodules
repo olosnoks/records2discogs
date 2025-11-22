@@ -1,0 +1,8 @@
+[submodule "ml-mobileclip"]
+	path = ml-mobileclip
+	url = https://github.com/olosnoks/ml-mobileclip.git
+	branch = localai
+[submodule "vinyl-record-indexing"]
+	path = vinyl-record-indexing
+	url = https://github.com/olosnoks/vinyl-record-indexing.git
+	branch = localai
