@@ -34,7 +34,7 @@ echo "📂 Location: $APP_PATH"
 echo ""
 
 cd "$SCRIPT_DIR/vinyl-record-indexing"
-python app.py
+python3 app.py
 INDEXING_EXIT_CODE=$?
 
 # Return to root
